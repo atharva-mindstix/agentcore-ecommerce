@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Orders</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f8; color: #1a1a2e; padding: 1.5rem; }
+    .container { max-width: 1100px; margin: 0 auto; }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
+    h1 { font-size: 1.4rem; }
+    a.back { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
+    a.back:hover { text-decoration: underline; }
+    table { width: 100%; border-collapse: collapse; background: #fff; border-radius: 8px; overflow: hidden; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    th, td { padding: 0.65rem 0.85rem; text-align: left; border-bottom: 1px solid #e8ecf0; font-size: 0.85rem; }
+    th { background: #2563eb; color: #fff; font-weight: 500; }
+    tr:last-child td { border-bottom: none; }
+    tr:hover td { background: #f8fafc; }
+    .status { display: inline-block; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
+    .status.SHIPPED { background: #dbeafe; color: #1e40af; }
+    .status.DELIVERED { background: #d1fae5; color: #065f46; }
+    .status.PLACED { background: #e0e7ff; color: #3730a3; }
+    .status.PROCESSING { background: #fef3c7; color: #92400e; }
+    .status.CANCELLED { background: #fee2e2; color: #991b1b; }
+    .notes { color: #64748b; font-size: 0.8rem; max-width: 220px; }
+    .json-section { margin-top: 2rem; }
+    .json-section h2 { font-size: 1rem; margin-bottom: 0.5rem; color: #555; }
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 0.75rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Orders</h1>
+      <a class="back" href="index.html">← Back to Home</a>
+    </header>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Customer</th>
+          <th>Status</th>
+          <th>Date</th>
+          <th>Total</th>
+          <th>Items</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody id="table-body"></tbody>
+    </table>
+
+    <div class="json-section">
+      <h2>Raw JSON (for agent fetch)</h2>
+      <pre id="json-output"></pre>
+    </div>
+  </div>
+
+  <script type="application/json" id="page-data"></script>
+  <script>
+    fetch('data/orders.json')
+      .then(r => r.json())
+      .then(orders => {
+        document.getElementById('page-data').textContent = JSON.stringify(orders);
+        document.getElementById('json-output').textContent = JSON.stringify(orders, null, 2);
+
+        const tbody = document.getElementById('table-body');
+        orders.forEach(o => {
+          const items = o.items.map(i => `${i.name} (x${i.qty})`).join(', ');
+          const tr = document.createElement('tr');
+          tr.innerHTML = `
+            <td>${o.order_id}</td>
+            <td>${o.customer_id}</td>
+            <td><span class="status ${o.status}">${o.status}</span></td>
+            <td>${o.order_date.slice(0, 10)}</td>
+            <td>${o.currency} ${o.total_amount.toFixed(2)}</td>
+            <td>${items}</td>
+            <td class="notes">${o.notes}</td>
+          `;
+          tbody.appendChild(tr);
+        });
+      });
+  </script>
+</body>
+</html>

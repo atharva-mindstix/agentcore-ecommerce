@@ -1,0 +1,47 @@
+[
+  {
+    "customer_id": "CUST-101",
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+1-555-0101",
+    "tier": "GOLD",
+    "joined_date": "2022-03-15",
+    "address": {
+      "line1": "123 Maple Street",
+      "city": "Seattle",
+      "state": "WA",
+      "postal_code": "98101",
+      "country": "US"
+    }
+  },
+  {
+    "customer_id": "CUST-102",
+    "name": "John Smith",
+    "email": "john.smith@example.com",
+    "phone": "+1-555-0102",
+    "tier": "STANDARD",
+    "joined_date": "2024-01-10",
+    "address": {
+      "line1": "456 Oak Avenue",
+      "city": "Portland",
+      "state": "OR",
+      "postal_code": "97201",
+      "country": "US"
+    }
+  },
+  {
+    "customer_id": "CUST-103",
+    "name": "Priya Sharma",
+    "email": "priya.sharma@example.com",
+    "phone": "+1-555-0103",
+    "tier": "STANDARD",
+    "joined_date": "2025-11-20",
+    "address": {
+      "line1": "789 Pine Road",
+      "city": "Austin",
+      "state": "TX",
+      "postal_code": "73301",
+      "country": "US"
+    }
+  }
+]

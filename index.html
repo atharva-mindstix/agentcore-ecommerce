@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Support Demo</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f4f6f8;
+      color: #1a1a2e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      max-width: 420px;
+      width: 90%;
+      text-align: center;
+    }
+    h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
+    p { color: #555; margin-bottom: 2rem; font-size: 0.95rem; }
+    .nav-btn {
+      display: block;
+      width: 100%;
+      padding: 0.85rem 1.25rem;
+      margin-bottom: 0.75rem;
+      background: #2563eb;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .nav-btn:hover { background: #1d4ed8; }
+    .nav-btn.secondary { background: #64748b; }
+    .nav-btn.secondary:hover { background: #475569; }
+    .links { margin-top: 1.5rem; font-size: 0.8rem; color: #888; }
+    .links a { color: #2563eb; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Order Support Demo</h1>
+    <p>Browse customer and order data for the AgentCore agent.</p>
+
+    <a class="nav-btn" href="customers.html">View Customers</a>
+    <a class="nav-btn" href="orders.html">View Orders</a>
+    <a class="nav-btn secondary" href="data/customers.json">Raw Customers JSON</a>
+    <a class="nav-btn secondary" href="data/orders.json">Raw Orders JSON</a>
+
+    <div class="links">
+      JSON endpoints for agent tools:<br>
+      <a href="data/customers.json">/data/customers.json</a> ·
+      <a href="data/orders.json">/data/orders.json</a>
+    </div>
+  </div>
+</body>
+</html>
