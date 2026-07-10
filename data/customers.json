@@ -1,47 +1,66 @@
 [
   {
-    "customer_id": "CUST-101",
-    "name": "Jane Doe",
-    "email": "jane.doe@example.com",
-    "phone": "+1-555-0101",
-    "tier": "GOLD",
-    "joined_date": "2022-03-15",
-    "address": {
-      "line1": "123 Maple Street",
-      "city": "Seattle",
-      "state": "WA",
-      "postal_code": "98101",
-      "country": "US"
-    }
-  },
-  {
-    "customer_id": "CUST-102",
-    "name": "John Smith",
-    "email": "john.smith@example.com",
-    "phone": "+1-555-0102",
-    "tier": "STANDARD",
-    "joined_date": "2024-01-10",
-    "address": {
-      "line1": "456 Oak Avenue",
-      "city": "Portland",
-      "state": "OR",
-      "postal_code": "97201",
-      "country": "US"
-    }
-  },
-  {
-    "customer_id": "CUST-103",
+    "customer_id": "CUST-1001",
     "name": "Priya Sharma",
     "email": "priya.sharma@example.com",
-    "phone": "+1-555-0103",
-    "tier": "STANDARD",
-    "joined_date": "2025-11-20",
+    "phone": "+91-9876543210",
+    "membership_tier": "gold",
+    "created_at": "2023-04-12",
     "address": {
-      "line1": "789 Pine Road",
-      "city": "Austin",
-      "state": "TX",
-      "postal_code": "73301",
+      "line1": "42 MG Road",
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "postal_code": "560001",
+      "country": "IN"
+    },
+    "notes": "Prefers email communication. Loyal customer since 2023."
+  },
+  {
+    "customer_id": "CUST-1002",
+    "name": "Jane Doe",
+    "email": "jane.doe@example.com",
+    "phone": "+91-9123456789",
+    "membership_tier": "silver",
+    "created_at": "2024-01-08",
+    "address": {
+      "line1": "789 Market Street",
+      "city": "San Francisco",
+      "state": "CA",
+      "postal_code": "94103",
       "country": "US"
-    }
+    },
+    "notes": "Has requested expedited shipping on past orders."
+  },
+  {
+    "customer_id": "CUST-1003",
+    "name": "Maria Garcia",
+    "email": "maria.garcia@example.com",
+    "phone": "+91-8765432109",
+    "membership_tier": "standard",
+    "created_at": "2025-06-20",
+    "address": {
+      "line1": "Calle Mayor 15",
+      "city": "Madrid",
+      "state": "Madrid",
+      "postal_code": "28013",
+      "country": "ES"
+    },
+    "notes": "First-time buyer. Signed up during summer sale."
+  },
+  {
+    "customer_id": "CUST-1004",
+    "name": "Aisha Khan",
+    "email": "aisha.khan@example.com",
+    "phone": "+91-7012345678",
+    "membership_tier": "gold",
+    "created_at": "2022-11-03",
+    "address": {
+      "line1": "22 Baker Street",
+      "city": "London",
+      "state": "England",
+      "postal_code": "NW1 6XE",
+      "country": "GB"
+    },
+    "notes": "VIP customer. Previous refund processed without issues in 2024."
   }
 ]
