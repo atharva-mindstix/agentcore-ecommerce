@@ -7,7 +7,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f8; color: #1a1a2e; padding: 1.5rem; }
-    .container { max-width: 1100px; margin: 0 auto; }
+    .container { max-width: 1200px; margin: 0 auto; }
     header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
     h1 { font-size: 1.4rem; }
     a.back { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
@@ -17,12 +17,12 @@
     th { background: #2563eb; color: #fff; font-weight: 500; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: #f8fafc; }
-    .status { display: inline-block; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; }
-    .status.SHIPPED { background: #dbeafe; color: #1e40af; }
-    .status.DELIVERED { background: #d1fae5; color: #065f46; }
-    .status.PLACED { background: #e0e7ff; color: #3730a3; }
-    .status.PROCESSING { background: #fef3c7; color: #92400e; }
-    .status.CANCELLED { background: #fee2e2; color: #991b1b; }
+    .status { display: inline-block; padding: 0.15rem 0.45rem; border-radius: 4px; font-size: 0.7rem; font-weight: 600; text-transform: uppercase; }
+    .status.delivered { background: #d1fae5; color: #065f46; }
+    .status.shipped { background: #dbeafe; color: #1e40af; }
+    .status.processing { background: #fef3c7; color: #92400e; }
+    .status.cancelled { background: #fee2e2; color: #991b1b; }
+    .status.return_requested { background: #fce7f3; color: #9d174d; }
     .notes { color: #64748b; font-size: 0.8rem; max-width: 220px; }
     .json-section { margin-top: 2rem; }
     .json-section h2 { font-size: 1rem; margin-bottom: 0.5rem; color: #555; }
@@ -52,6 +52,7 @@
           <th>Status</th>
           <th>Date</th>
           <th>Total</th>
+          <th>Payment</th>
           <th>Items</th>
           <th>Notes</th>
         </tr>
@@ -65,26 +66,30 @@
     </div>
   </div>
 
-  <script type="application/json" id="page-data"></script>
   <script>
+    function orderNotes(o) {
+      return o.return_reason || o.cancellation_reason || '';
+    }
+
     fetch('data/orders.json')
       .then(r => r.json())
       .then(orders => {
-        document.getElementById('page-data').textContent = JSON.stringify(orders);
         document.getElementById('json-output').textContent = JSON.stringify(orders, null, 2);
 
         const tbody = document.getElementById('table-body');
         orders.forEach(o => {
-          const items = o.items.map(i => `${i.name} (x${i.qty})`).join(', ');
+          const items = (o.items || []).map(i => `${i.name} (x${i.quantity})`).join(', ');
+          const status = (o.status || 'unknown').toLowerCase();
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${o.order_id}</td>
             <td>${o.customer_id}</td>
-            <td><span class="status ${o.status}">${o.status}</span></td>
-            <td>${o.order_date.slice(0, 10)}</td>
-            <td>${o.currency} ${o.total_amount.toFixed(2)}</td>
+            <td><span class="status ${status}">${status.replace('_', ' ')}</span></td>
+            <td>${o.order_date}</td>
+            <td>${o.currency} ${Number(o.total).toFixed(2)}</td>
+            <td>${o.payment_method || ''}</td>
             <td>${items}</td>
-            <td class="notes">${o.notes}</td>
+            <td class="notes">${orderNotes(o)}</td>
           `;
           tbody.appendChild(tr);
         });
