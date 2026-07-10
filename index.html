@@ -14,14 +14,15 @@
       display: flex;
       align-items: center;
       justify-content: center;
+      padding: 1rem;
     }
     .card {
       background: #fff;
       border-radius: 12px;
       padding: 2.5rem;
       box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-      max-width: 420px;
-      width: 90%;
+      max-width: 480px;
+      width: 100%;
       text-align: center;
     }
     h1 { font-size: 1.5rem; margin-bottom: 0.5rem; }
@@ -42,24 +43,37 @@
     .nav-btn:hover { background: #1d4ed8; }
     .nav-btn.secondary { background: #64748b; }
     .nav-btn.secondary:hover { background: #475569; }
-    .links { margin-top: 1.5rem; font-size: 0.8rem; color: #888; }
-    .links a { color: #2563eb; }
+    .links { margin-top: 1.5rem; font-size: 0.8rem; color: #888; text-align: left; }
+    .links a { color: #2563eb; word-break: break-all; }
+    .links li { margin-bottom: 0.35rem; }
+    .sample { margin-top: 1rem; font-size: 0.8rem; color: #64748b; text-align: left; }
   </style>
 </head>
 <body>
   <div class="card">
     <h1>Order Support Demo</h1>
-    <p>Browse customer and order data for the AgentCore agent.</p>
+    <p>Browse customer and order data for the AgentCore agent. Data synced from <code>app/order_support_agent/data/</code>.</p>
 
     <a class="nav-btn" href="customers.html">View Customers</a>
     <a class="nav-btn" href="orders.html">View Orders</a>
+    <a class="nav-btn" href="return-policy.html">Refund Policy</a>
     <a class="nav-btn secondary" href="data/customers.json">Raw Customers JSON</a>
     <a class="nav-btn secondary" href="data/orders.json">Raw Orders JSON</a>
 
     <div class="links">
-      JSON endpoints for agent tools:<br>
-      <a href="data/customers.json">/data/customers.json</a> ·
-      <a href="data/orders.json">/data/orders.json</a>
+      <strong>JSON endpoints for agent tools:</strong>
+      <ul>
+        <li><a href="data/customers.json">/data/customers.json</a></li>
+        <li><a href="data/orders.json">/data/orders.json</a></li>
+        <li><a href="data/shipments.json">/data/shipments.json</a></li>
+        <li><a href="data/policies.json">/data/policies.json</a></li>
+      </ul>
+    </div>
+
+    <div class="sample">
+      <strong>Sample IDs:</strong><br>
+      Customers: CUST-1001, CUST-1002, CUST-1003, CUST-1004<br>
+      Orders: ORD-50001 … ORD-50006 (ORD-50005 return, ORD-50006 INR 79 refund demo)
     </div>
   </div>
 </body>
