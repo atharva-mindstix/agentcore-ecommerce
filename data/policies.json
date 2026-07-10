@@ -1,0 +1,48 @@
+{
+  "refund_policy": {
+    "policy_id": "POL-REF-001",
+    "version": "2026-01",
+    "effective_date": "2026-01-01",
+    "summary": "Customers may request refunds or returns within 30 days of delivery for most items.",
+    "eligibility": [
+      "Item must be returned within 30 days of delivery date",
+      "Product must be unused or defective",
+      "Original packaging and accessories should be included when possible",
+      "Digital goods and personalized items are non-refundable unless defective",
+      "Gold tier members receive free return shipping on eligible items"
+    ],
+    "refund_timelines": {
+      "credit_card": "5-7 business days after warehouse inspection",
+      "debit_card": "5-10 business days after warehouse inspection",
+      "upi": "3-5 business days after warehouse inspection",
+      "paypal": "3-5 business days after warehouse inspection"
+    },
+    "partial_refunds": {
+      "allowed": true,
+      "conditions": [
+        "Missing accessories may result in partial refund",
+        "Visible wear on non-defective returns may incur a restocking fee up to 15%"
+      ]
+    },
+    "non_refundable_categories": [
+      "Gift cards",
+      "Downloadable software licenses",
+      "Custom engraved products",
+      "Hygiene products once opened"
+    ],
+    "defective_items": {
+      "return_window_days": 90,
+      "process": "Report defect with photos within 90 days. Replacement or full refund offered after verification.",
+      "shipping": "Prepaid return label provided at no cost to the customer"
+    },
+    "cancelled_orders": {
+      "before_shipment": "Full refund within 24-48 hours",
+      "after_shipment": "Refund issued after return is received and inspected"
+    },
+    "contact": {
+      "email": "support@ordersupport.example.com",
+      "phone": "+1-800-555-0199",
+      "hours": "Mon-Fri 9:00-18:00 local time"
+    }
+  }
+}
