@@ -1,0 +1,137 @@
+[
+  {
+    "shipment_id": "SHP-90001",
+    "order_id": "ORD-50001",
+    "carrier": "BlueDart",
+    "tracking_number": "BD7829345610IN",
+    "status": "delivered",
+    "shipped_date": "2026-06-29",
+    "estimated_delivery": "2026-07-02",
+    "delivered_date": "2026-07-01",
+    "destination": {
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "IN"
+    },
+    "events": [
+      {
+        "timestamp": "2026-06-29T10:15:00+05:30",
+        "location": "Bengaluru Hub",
+        "status": "picked_up",
+        "description": "Package picked up from warehouse"
+      },
+      {
+        "timestamp": "2026-06-30T08:40:00+05:30",
+        "location": "Bengaluru Sort Facility",
+        "status": "in_transit",
+        "description": "In transit to local delivery center"
+      },
+      {
+        "timestamp": "2026-07-01T14:22:00+05:30",
+        "location": "Bengaluru",
+        "status": "delivered",
+        "description": "Delivered to customer"
+      }
+    ]
+  },
+  {
+    "shipment_id": "SHP-90002",
+    "order_id": "ORD-50002",
+    "carrier": "FedEx",
+    "tracking_number": "794612345678",
+    "status": "in_transit",
+    "shipped_date": "2026-07-03",
+    "estimated_delivery": "2026-07-10",
+    "delivered_date": null,
+    "destination": {
+      "city": "San Francisco",
+      "state": "CA",
+      "country": "US"
+    },
+    "events": [
+      {
+        "timestamp": "2026-07-03T09:00:00-07:00",
+        "location": "Oakland, CA",
+        "status": "picked_up",
+        "description": "Shipment information sent to FedEx"
+      },
+      {
+        "timestamp": "2026-07-04T06:30:00-07:00",
+        "location": "Memphis, TN",
+        "status": "in_transit",
+        "description": "Departed FedEx hub"
+      },
+      {
+        "timestamp": "2026-07-06T11:45:00-07:00",
+        "location": "San Jose, CA",
+        "status": "out_for_delivery",
+        "description": "On FedEx vehicle for delivery"
+      }
+    ]
+  },
+  {
+    "shipment_id": "SHP-90003",
+    "order_id": "ORD-50003",
+    "carrier": "Correos",
+    "tracking_number": null,
+    "status": "pending",
+    "shipped_date": null,
+    "estimated_delivery": "2026-07-15",
+    "delivered_date": null,
+    "destination": {
+      "city": "Madrid",
+      "state": "Madrid",
+      "country": "ES"
+    },
+    "events": [
+      {
+        "timestamp": "2026-07-08T16:00:00+02:00",
+        "location": "Madrid Warehouse",
+        "status": "processing",
+        "description": "Order is being prepared for shipment"
+      }
+    ]
+  },
+  {
+    "shipment_id": "SHP-90004",
+    "order_id": "ORD-50005",
+    "carrier": "BlueDart",
+    "tracking_number": "BD7829348899IN",
+    "status": "return_in_transit",
+    "shipped_date": "2026-07-02",
+    "estimated_delivery": "2026-07-05",
+    "delivered_date": "2026-07-04",
+    "destination": {
+      "city": "Bengaluru",
+      "state": "Karnataka",
+      "country": "IN"
+    },
+    "return_shipment": {
+      "carrier": "BlueDart",
+      "tracking_number": "BD7829349900IN",
+      "status": "in_transit",
+      "pickup_date": "2026-07-09",
+      "estimated_warehouse_arrival": "2026-07-12"
+    },
+    "events": [
+      {
+        "timestamp": "2026-07-02T11:00:00+05:30",
+        "location": "Bengaluru Hub",
+        "status": "picked_up",
+        "description": "Package picked up from warehouse"
+      },
+      {
+        "timestamp": "2026-07-04T15:30:00+05:30",
+        "location": "Bengaluru",
+        "status": "delivered",
+        "description": "Delivered to customer"
+      },
+      {
+        "timestamp": "2026-07-09T10:00:00+05:30",
+        "location": "Bengaluru",
+        "status": "return_pickup_scheduled",
+        "description": "Return pickup scheduled for defective item"
+      }
+    ]
+  }
+]
