@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Refund Policy</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f8; color: #1a1a2e; padding: 1.5rem; line-height: 1.6; }
+    .container { max-width: 800px; margin: 0 auto; background: #fff; padding: 2rem; border-radius: 12px; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+    header { margin-bottom: 1.5rem; }
+    h1 { font-size: 1.5rem; margin-bottom: 0.25rem; }
+    .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 1rem; }
+    a.back { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
+    a.back:hover { text-decoration: underline; }
+    h2 { font-size: 1.1rem; margin: 1.25rem 0 0.5rem; }
+    ul { margin-left: 1.25rem; }
+    li { margin-bottom: 0.35rem; }
+    .summary { background: #eff6ff; border-left: 4px solid #2563eb; padding: 1rem; border-radius: 0 8px 8px 0; margin: 1rem 0; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="back" href="index.html">← Back to Home</a>
+      <h1 id="title">Refund &amp; Return Policy</h1>
+      <p class="meta" id="meta"></p>
+    </header>
+    <div id="content"></div>
+  </div>
+
+  <script>
+    fetch('data/policies.json')
+      .then(r => r.json())
+      .then(data => {
+        const p = data.refund_policy;
+        document.getElementById('meta').textContent =
+          `Policy ${p.policy_id} · Version ${p.version} · Effective ${p.effective_date}`;
+
+        const sections = [];
+        sections.push(`<div class="summary"><strong>Summary:</strong> ${p.summary}</div>`);
+        sections.push('<h2>Eligibility</h2><ul>' + p.eligibility.map(i => `<li>${i}</li>`).join('') + '</ul>');
+        sections.push('<h2>Refund Timelines</h2><ul>' +
+          Object.entries(p.refund_timelines).map(([k, v]) => `<li><strong>${k}:</strong> ${v}</li>`).join('') + '</ul>');
+        sections.push('<h2>Partial Refunds</h2><ul>' + p.partial_refunds.conditions.map(i => `<li>${i}</li>`).join('') + '</ul>');
+        sections.push('<h2>Non-Refundable Categories</h2><ul>' + p.non_refundable_categories.map(i => `<li>${i}</li>`).join('') + '</ul>');
+        sections.push(`<h2>Defective Items</h2><p>${p.defective_items.process}</p><p>${p.defective_items.shipping}</p>`);
+        sections.push(`<h2>Cancelled Orders</h2><p><strong>Before shipment:</strong> ${p.cancelled_orders.before_shipment}</p><p><strong>After shipment:</strong> ${p.cancelled_orders.after_shipment}</p>`);
+        sections.push(`<h2>Contact</h2><p>${p.contact.email} · ${p.contact.phone} · ${p.contact.hours}</p>`);
+
+        document.getElementById('content').innerHTML = sections.join('');
+      });
+  </script>
+</body>
+</html>
