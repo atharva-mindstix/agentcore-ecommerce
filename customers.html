@@ -7,7 +7,7 @@
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: system-ui, -apple-system, sans-serif; background: #f4f6f8; color: #1a1a2e; padding: 1.5rem; }
-    .container { max-width: 960px; margin: 0 auto; }
+    .container { max-width: 1100px; margin: 0 auto; }
     header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 0.75rem; }
     h1 { font-size: 1.4rem; }
     a.back { color: #2563eb; text-decoration: none; font-size: 0.9rem; }
@@ -17,9 +17,11 @@
     th { background: #2563eb; color: #fff; font-weight: 500; }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: #f8fafc; }
-    .tier { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; }
-    .tier.GOLD { background: #fef3c7; color: #92400e; }
-    .tier.STANDARD { background: #e2e8f0; color: #475569; }
+    .tier { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; text-transform: capitalize; }
+    .tier.gold { background: #fef3c7; color: #92400e; }
+    .tier.silver { background: #e2e8f0; color: #475569; }
+    .tier.standard { background: #dbeafe; color: #1e40af; }
+    .notes { color: #64748b; font-size: 0.8rem; max-width: 240px; }
     .json-section { margin-top: 2rem; }
     .json-section h2 { font-size: 1rem; margin-bottom: 0.5rem; color: #555; }
     pre {
@@ -48,8 +50,9 @@
           <th>Email</th>
           <th>Phone</th>
           <th>Tier</th>
-          <th>City</th>
+          <th>Location</th>
           <th>Joined</th>
+          <th>Notes</th>
         </tr>
       </thead>
       <tbody id="table-body"></tbody>
@@ -61,25 +64,26 @@
     </div>
   </div>
 
-  <script type="application/json" id="page-data"></script>
   <script>
     fetch('data/customers.json')
       .then(r => r.json())
       .then(customers => {
-        document.getElementById('page-data').textContent = JSON.stringify(customers);
         document.getElementById('json-output').textContent = JSON.stringify(customers, null, 2);
 
         const tbody = document.getElementById('table-body');
         customers.forEach(c => {
+          const tier = c.membership_tier || 'standard';
+          const addr = c.address || {};
           const tr = document.createElement('tr');
           tr.innerHTML = `
             <td>${c.customer_id}</td>
             <td>${c.name}</td>
             <td>${c.email}</td>
             <td>${c.phone}</td>
-            <td><span class="tier ${c.tier}">${c.tier}</span></td>
-            <td>${c.address.city}, ${c.address.state}</td>
-            <td>${c.joined_date}</td>
+            <td><span class="tier ${tier}">${tier}</span></td>
+            <td>${addr.city || ''}, ${addr.state || ''} (${addr.country || ''})</td>
+            <td>${c.created_at}</td>
+            <td class="notes">${c.notes || ''}</td>
           `;
           tbody.appendChild(tr);
         });
