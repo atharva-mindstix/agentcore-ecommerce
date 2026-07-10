@@ -1,152 +1,130 @@
 [
   {
-    "order_id": "ORD-9001",
-    "customer_id": "CUST-101",
-    "status": "SHIPPED",
-    "order_date": "2026-06-20T10:30:00Z",
-    "promised_delivery_date": "2026-06-25",
-    "cancellation_deadline": "2026-06-21T10:30:00Z",
-    "refund_window_days": 30,
-    "total_amount": 149.99,
-    "currency": "USD",
-    "payment_method": "CREDIT_CARD",
+    "order_id": "ORD-50001",
+    "customer_id": "CUST-1001",
+    "status": "delivered",
+    "order_date": "2026-06-28",
+    "currency": "INR",
+    "subtotal": 8499.0,
+    "shipping_cost": 0.0,
+    "tax": 1529.82,
+    "total": 10028.82,
+    "payment_method": "upi",
     "items": [
       {
-        "sku": "SKU-001",
-        "name": "Wireless Noise-Cancelling Headphones",
-        "qty": 1,
-        "unit_price": 149.99
+        "sku": "WB-PRO-001",
+        "name": "Wireless Earbuds Pro",
+        "quantity": 1,
+        "unit_price": 4999.0
+      },
+      {
+        "sku": "CS-LEA-010",
+        "name": "Leather Phone Case",
+        "quantity": 1,
+        "unit_price": 3500.0
       }
-    ],
-    "notes": "Primary demo case — order is delayed while still in transit."
+    ]
   },
   {
-    "order_id": "ORD-9002",
-    "customer_id": "CUST-101",
-    "status": "DELIVERED",
-    "order_date": "2026-06-01T14:00:00Z",
-    "promised_delivery_date": "2026-06-05",
-    "delivered_date": "2026-06-05",
-    "cancellation_deadline": "2026-06-02T14:00:00Z",
-    "refund_window_days": 30,
-    "total_amount": 59.98,
+    "order_id": "ORD-50002",
+    "customer_id": "CUST-1002",
+    "status": "shipped",
+    "order_date": "2026-07-02",
     "currency": "USD",
-    "payment_method": "DEBIT_CARD",
+    "subtotal": 129.99,
+    "shipping_cost": 9.99,
+    "tax": 11.20,
+    "total": 151.18,
+    "payment_method": "credit_card",
     "items": [
       {
-        "sku": "SKU-002",
-        "name": "USB-C Charging Cable (2m)",
-        "qty": 2,
+        "sku": "KB-MEC-204",
+        "name": "Mechanical Keyboard",
+        "quantity": 1,
+        "unit_price": 129.99
+      }
+    ]
+  },
+  {
+    "order_id": "ORD-50003",
+    "customer_id": "CUST-1003",
+    "status": "processing",
+    "order_date": "2026-07-08",
+    "currency": "EUR",
+    "subtotal": 59.98,
+    "shipping_cost": 4.99,
+    "tax": 13.59,
+    "total": 78.56,
+    "payment_method": "paypal",
+    "items": [
+      {
+        "sku": "TS-BAS-003",
+        "name": "Organic Cotton T-Shirt",
+        "quantity": 2,
         "unit_price": 29.99
       }
-    ],
-    "notes": "Delivered on time — refund only if within 30-day window and valid reason."
+    ]
   },
   {
-    "order_id": "ORD-9003",
-    "customer_id": "CUST-101",
-    "status": "DELIVERED",
-    "order_date": "2026-06-10T09:15:00Z",
-    "promised_delivery_date": "2026-06-15",
-    "delivered_date": "2026-06-20",
-    "cancellation_deadline": "2026-06-11T09:15:00Z",
-    "refund_window_days": 30,
-    "total_amount": 89.99,
-    "currency": "USD",
-    "payment_method": "CREDIT_CARD",
+    "order_id": "ORD-50004",
+    "customer_id": "CUST-1004",
+    "status": "cancelled",
+    "order_date": "2026-06-15",
+    "currency": "GBP",
+    "subtotal": 249.0,
+    "shipping_cost": 0.0,
+    "tax": 49.80,
+    "total": 298.80,
+    "payment_method": "credit_card",
     "items": [
       {
-        "sku": "SKU-003",
-        "name": "Ergonomic Office Mouse",
-        "qty": 1,
-        "unit_price": 89.99
+        "sku": "SPK-SMT-007",
+        "name": "Smart Speaker Mini",
+        "quantity": 1,
+        "unit_price": 249.0
       }
     ],
-    "notes": "Delivered 5 days late — eligible for late-delivery refund per policy."
+    "cancellation_reason": "Customer requested cancellation before shipment"
   },
   {
-    "order_id": "ORD-9004",
-    "customer_id": "CUST-101",
-    "status": "PLACED",
-    "order_date": "2026-06-30T08:00:00Z",
-    "promised_delivery_date": "2026-07-05",
-    "cancellation_deadline": "2026-07-01T08:00:00Z",
-    "refund_window_days": 30,
-    "total_amount": 34.99,
-    "currency": "USD",
-    "payment_method": "PAYPAL",
+    "order_id": "ORD-50005",
+    "customer_id": "CUST-1001",
+    "status": "return_requested",
+    "order_date": "2026-07-01",
+    "currency": "INR",
+    "subtotal": 2999.0,
+    "shipping_cost": 99.0,
+    "tax": 557.64,
+    "total": 3655.64,
+    "payment_method": "upi",
     "items": [
       {
-        "sku": "SKU-004",
-        "name": "Phone Screen Protector",
-        "qty": 1,
-        "unit_price": 34.99
+        "sku": "MON-27-4K",
+        "name": "27-inch 4K Monitor",
+        "quantity": 1,
+        "unit_price": 2999.0
       }
     ],
-    "notes": "Recently placed — inside cancellation window."
+    "return_reason": "Dead pixels on arrival"
   },
   {
-    "order_id": "ORD-9005",
-    "customer_id": "CUST-101",
-    "status": "PROCESSING",
-    "order_date": "2026-06-25T16:45:00Z",
-    "promised_delivery_date": "2026-07-02",
-    "cancellation_deadline": "2026-06-26T16:45:00Z",
-    "refund_window_days": 30,
-    "total_amount": 199.0,
-    "currency": "USD",
-    "payment_method": "CREDIT_CARD",
+    "order_id": "ORD-50006",
+    "customer_id": "CUST-1001",
+    "status": "delivered",
+    "order_date": "2026-07-09",
+    "currency": "INR",
+    "subtotal": 67.0,
+    "shipping_cost": 12.0,
+    "tax": 14.22,
+    "total": 79.0,
+    "payment_method": "upi",
     "items": [
       {
-        "sku": "SKU-005",
-        "name": "Mechanical Keyboard",
-        "qty": 1,
-        "unit_price": 199.0
+        "sku": "ACC-USB-C-01",
+        "name": "USB-C Charging Cable",
+        "quantity": 1,
+        "unit_price": 67.0
       }
-    ],
-    "notes": "Processing — cancellation window has expired (deadline was 2026-06-26)."
-  },
-  {
-    "order_id": "ORD-9006",
-    "customer_id": "CUST-102",
-    "status": "SHIPPED",
-    "order_date": "2026-06-18T11:20:00Z",
-    "promised_delivery_date": "2026-06-24",
-    "cancellation_deadline": "2026-06-19T11:20:00Z",
-    "refund_window_days": 30,
-    "total_amount": 45.5,
-    "currency": "USD",
-    "payment_method": "DEBIT_CARD",
-    "items": [
-      {
-        "sku": "SKU-006",
-        "name": "Stainless Steel Water Bottle",
-        "qty": 1,
-        "unit_price": 45.5
-      }
-    ],
-    "notes": "Belongs to CUST-102 — use to test cross-customer access denial."
-  },
-  {
-    "order_id": "ORD-9007",
-    "customer_id": "CUST-103",
-    "status": "CANCELLED",
-    "order_date": "2026-06-22T13:00:00Z",
-    "promised_delivery_date": "2026-06-28",
-    "cancelled_date": "2026-06-22T18:30:00Z",
-    "cancellation_deadline": "2026-06-23T13:00:00Z",
-    "refund_window_days": 30,
-    "total_amount": 24.99,
-    "currency": "USD",
-    "payment_method": "CREDIT_CARD",
-    "items": [
-      {
-        "sku": "SKU-007",
-        "name": "Notebook Set (3-pack)",
-        "qty": 1,
-        "unit_price": 24.99
-      }
-    ],
-    "notes": "Already cancelled — no further cancellation; refund may be in progress."
+    ]
   }
 ]
